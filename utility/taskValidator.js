@@ -12,7 +12,10 @@ exports.createTaskValidator = [
     .withMessage("Task name required")
     .isLength({ max: 32 })
     .withMessage("Task name too long"),
-  check("completed").notEmpty().withMessage("Task completed required"),
+  check("completed")
+    .optional()
+    .isBoolean()
+    .withMessage("Completed must be true or false"),
   validatorMiddleware,
 ];
 

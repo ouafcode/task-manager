@@ -70,7 +70,7 @@ formDOM.addEventListener("submit", async (e) => {
   const name = taskInputDOM.value;
 
   try {
-    await axios.post("/api/v1/tasks", { name });
+    await axios.post("/api/v1/tasks", { name, completed: false });
     showTasks();
     taskInputDOM.value = "";
     formAlertDOM.style.display = "block";
